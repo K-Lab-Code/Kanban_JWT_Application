@@ -22,6 +22,7 @@ const retrieveTickets = async () => {
     return data;
   } catch (err) {
     console.log('Error from data retrieval: ', err);
+    window.location.assign('/');
     return [];
   }
 };
@@ -46,6 +47,7 @@ const retrieveTicket = async (id: number | null): Promise<TicketData> => {
     return data;
   } catch (err) {
     console.log('Error from data retrieval: ', err);
+    window.location.assign('/');
     return Promise.reject('Could not fetch singular ticket');
   }
 }
@@ -73,6 +75,7 @@ const createTicket = async (body: TicketData) => {
 
   } catch (err) {
     console.log('Error from Ticket Creation: ', err);
+    window.location.assign('/');
     return Promise.reject('Could not create ticket');
   }
 }
@@ -98,6 +101,7 @@ const updateTicket = async (ticketId: number, body: TicketData): Promise<TicketD
     return data;
   } catch (err) {
     console.error('Update did not work', err);
+    window.location.assign('/');
     return Promise.reject('Update did not work');
   }
 };
@@ -122,6 +126,7 @@ const deleteTicket = async (ticketId: number): Promise<ApiMessage> => {
     return data;
   } catch (err) {
     console.error('Error in deleting ticket', err);
+    window.location.assign('/');
     return Promise.reject('Could not delete ticket');
   }
 };
