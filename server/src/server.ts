@@ -1,5 +1,5 @@
 const forceDatabaseRefresh = false;
-
+import { User } from '../models/user.js';//!!!
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -20,4 +20,10 @@ sequelize.sync({force: forceDatabaseRefresh}).then(() => {
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });
+  await User.bulkCreate([
+    { username: 'JollyGuru', password: 'password' },
+    { username: 'SunnyScribe', password: 'password' },
+    { username: 'RadiantComet', password: 'password' },
+  ], { individualHooks: true });
+};
 });
