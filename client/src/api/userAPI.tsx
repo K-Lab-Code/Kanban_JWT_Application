@@ -18,6 +18,7 @@ const retrieveUsers = async () => {
 
   } catch (err) { 
     console.log('Error from data retrieval:', err);
+    window.location.assign('/');
     return [];
   }
 }

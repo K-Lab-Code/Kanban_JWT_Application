@@ -1,12 +1,11 @@
 import { JwtPayload, jwtDecode } from 'jwt-decode';
-//!!!loggedIn getToken login logout
 class AuthService {
   getProfile() {
     const token = this.getToken();
     try {
       return jwtDecode<JwtPayload>(token);
     } catch (error) {
-      return null;//???
+      return null;
     }
   }
     
