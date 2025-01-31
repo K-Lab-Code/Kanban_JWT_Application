@@ -10,12 +10,6 @@ export const login = async (req: Request, res: Response) => {
 
   try {
     // Find the user by username
-    await User.bulkCreate([
-    { username: 'JollyGuru', password: 'password' },
-    { username: 'SunnyScribe', password: 'password' },
-    { username: 'RadiantComet', password: 'password' },
-  ], { individualHooks: true });
-    console.log(await User.findAll());
     const user = await User.findOne({
       where: { username },
     });
