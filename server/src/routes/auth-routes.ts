@@ -10,7 +10,7 @@ export const login = async (req: Request, res: Response) => {
 
   try {
     // Find the user by username
-    console.log(User.findAll());
+    console.log(await User.findAll());
     const user = await User.findOne({
       where: { username },
     });
